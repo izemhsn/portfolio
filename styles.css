@@ -890,7 +890,7 @@ footer > p:last-child { justify-self: end; }
   .hero { min-height: 680px; padding-top: 100px; }
   .hero-meta { flex-direction: column; gap: 10px; }
   .hero-where { text-align: left; }
-  .hero-title { font-size: 13.6vw; }
+  .hero-title { font-size: 16vw; }
   .hero-bottom { grid-template-columns: 1fr; }
   .round-link { display: none; }
   .section { padding-block: 85px; }
