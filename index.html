@@ -43,8 +43,8 @@
     </button>
 
     <nav class="site-nav" id="site-nav" aria-label="Sections">
-      <a href="#work">Work</a>
       <a href="#experience">Experience</a>
+      <a href="#work">Work</a>
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
@@ -58,7 +58,7 @@
     <section class="hero" id="top" aria-labelledby="hero-title">
       <div class="hero-meta">
         <p>Full-stack developer, web &amp; mobile<br>Open to full-time or part-time roles</p>
-        <p class="hero-where">Based in Morocco<br>Open to remote &amp; relocation</p>
+        <p class="hero-where">Based in Fes, Morocco<br>Open to remote &amp; relocation</p>
       </div>
 
       <h1 id="hero-title" class="hero-title">
@@ -72,12 +72,117 @@
         <p>I’m El Houssaine Izem. For nearly six years at 3POS, a German point-of-sale platform, I shipped live kitchen displays, ordering kiosks, an admin portal and five iOS and Android apps in Vue, Nuxt, TypeScript, React Native and Flutter.</p>
         <div class="hero-actions">
           <a href="mailto:izem.hsn@gmail.com">Email me</a>
-          <a href="assets/El_Houssaine_IZEM_Full-Stack_Developer_Resume.pdf" download>Download résumé</a>
+          <a href="assets/El_Houssaine_IZEM_Full-Stack_Developer_Resume.pdf?v=2" download>Download résumé</a>
         </div>
-        <a class="round-link" href="#work" aria-label="Jump to selected work">
+        <a class="round-link" href="#experience" aria-label="Jump to experience">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16M5 13l7 7 7-7"/></svg>
         </a>
       </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="experience section" id="experience" aria-labelledby="experience-title">
+      <div class="section-heading">
+        <p class="section-meta">Jan 2021 – Oct 2026<br>Germany, remote from Morocco</p>
+        <div>
+          <h2 id="experience-title">Nearly six years at 3POS.</h2>
+          <p class="section-lede">Front-end and mobile developer. 3POS sells point-of-sale systems to restaurants, hotels, shops, stadiums and event venues. The apps below are used every day by staff and their customers. I made the architecture and tooling decisions for each product, from frameworks and state management to build setup, and worked across teams with back-end developers, UI designers and product owners to plan and ship features. I also mentored a new developer on how the products work and their key workflows.</p>
+        </div>
+      </div>
+
+      <div class="experience-group">
+        <div class="group-heading">
+          <h3>Web apps</h3>
+          <p>Vue / Nuxt / TypeScript</p>
+        </div>
+        <ul class="rows" role="list">
+          <li class="row" id="admin-portal">
+            <h4>Admin portal</h4>
+            <div class="row-body"><p>An admin portal built on REST APIs, with VeeValidate and Zod form validation. It gives administrators full control over orders, invoices, subscriptions, users and analytics, and <strong>significantly sped up customer onboarding</strong>.</p></div>
+            <p class="row-stack">Nuxt, TypeScript, Vite, Tailwind CSS, VeeValidate, Zod</p>
+          </li>
+          <li class="row" id="kitchen-monitor">
+            <h4>Kitchen Monitor</h4>
+            <div class="row-body">
+              <p>A real-time Vue app that streams live orders over WebSockets from the POS and online channels to kitchen screens across customer venues.</p>
+              <p>I led its migration from Vue 2 to Vue 3, which improved rendering performance by <strong>30%</strong>.</p>
+            </div>
+            <p class="row-stack">Vue 3, TypeScript, WebSockets</p>
+          </li>
+          <li class="row" id="pickup-monitor">
+            <h4>Pickup Monitor</h4>
+            <div class="row-body"><p>A real-time Vue app that streams live orders over WebSockets from the POS and online channels to pickup screens across customer venues.</p></div>
+            <p class="row-stack">Vue, WebSockets</p>
+          </li>
+          <li class="row" id="cashier">
+            <h4>Web POS cashier</h4>
+            <div class="row-body"><p>Features and production fixes for the web POS cashier system used daily by restaurant staff. I cut load times with code splitting, lazy loading and caching.</p></div>
+            <p class="row-stack">Vue, TypeScript</p>
+          </li>
+          <li class="row" id="ordering">
+            <h4>Kiosk and QR ordering</h4>
+            <div class="row-body"><p>A self-service kiosk for fast-food restaurants, and a QR-code table ordering app that lets diners order from their own phones. Both boosted order volume, cut counter workload and sped up table turnaround.</p></div>
+            <p class="row-stack">Vue, TypeScript</p>
+          </li>
+          <li class="row" id="online-ordering">
+            <h4>Online ordering</h4>
+            <div class="row-body"><p>An online ordering system for delivery and pickup that improved order accuracy for staff and customers.</p></div>
+            <p class="row-stack">Vue, REST APIs</p>
+          </li>
+          <li class="row" id="reservations">
+            <h4>Table reservations</h4>
+            <div class="row-body"><p>A table reservation system with dish pre-ordering and real-time availability, preventing double bookings.</p></div>
+            <p class="row-stack">Vue</p>
+          </li>
+          <li class="row" id="wordpress">
+            <h4>Product websites</h4>
+            <div class="row-body"><p>Launched and maintained seven responsive WordPress marketing and help-center sites for the company’s products, including <a href="https://www.3pos.de/">3pos.de</a>.</p></div>
+            <p class="row-stack">WordPress</p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="experience-group">
+        <div class="group-heading">
+          <h3>Mobile apps</h3>
+          <p>React Native / Flutter / iOS / Android</p>
+        </div>
+        <p class="group-note">I delivered five cross-platform iOS and Android apps, from features and native modules to App Store and Google Play releases.</p>
+        <ul class="rows" role="list">
+          <li class="row" id="event-scanner">
+            <h4>Event Scanner</h4>
+            <div class="row-body"><p>Ticket scanning for check-in and check-out at stadiums and event venues. It <strong>cut attendee wait times by 50%</strong>.</p></div>
+            <p class="row-stack">React Native</p>
+          </li>
+          <li class="row" id="stock-taking">
+            <h4>Stock Taking</h4>
+            <div class="row-body"><p>Barcode-based inventory counting that replaced manual entry and made stock levels more accurate.</p></div>
+            <p class="row-stack">React Native</p>
+          </li>
+          <li class="row" id="price-check">
+            <h4>Price Check</h4>
+            <div class="row-body"><p>Scan an EAN barcode, see the price instantly. It <strong>cut pricing errors by 20%</strong>.</p></div>
+            <p class="row-stack">Flutter</p>
+          </li>
+          <li class="row" id="controller">
+            <h4>Controller</h4>
+            <div class="row-body"><p>Real-time sales and system dashboards that give owners live insight into operations.</p></div>
+            <p class="row-stack">Flutter</p>
+          </li>
+          <li class="row" id="time-tracking">
+            <h4>Time Tracking</h4>
+            <div class="row-body"><p>Features for the app managers use to track work hours and manage staff shifts.</p></div>
+            <p class="row-stack">Flutter</p>
+          </li>
+        </ul>
+      </div>
+
+      <ul class="impact-grid" role="list" aria-label="Measured results">
+        <li><strong>50%</strong><span>Shorter waits at event gates</span></li>
+        <li><strong>30%</strong><span>Faster rendering after the Vue 3 migration</span></li>
+        <li><strong>20%</strong><span>Fewer pricing errors in shops</span></li>
+        <li><strong>5</strong><span>Apps shipped to the App Store and Google Play</span></li>
+      </ul>
     </section>
 
     <!-- Selected work -->
@@ -136,12 +241,12 @@
                 </div>
               </div>
             </div>
-            <span class="view-project" aria-hidden="true">Read details ↓</span>
+            <span class="view-project" aria-hidden="true">Read details ↑</span>
           </a>
           <div class="project-info">
             <h3 id="p-admin">Admin portal</h3>
             <p>Orders, invoices, subscriptions and analytics</p>
-            <p>Nuxt / TypeScript / Tailwind CSS</p>
+            <p>Nuxt / TypeScript / Vite / Zod</p>
             <span>Faster onboarding</span>
           </div>
         </article>
@@ -164,7 +269,7 @@
                 <em>Pay 33.50</em>
               </div>
             </div>
-            <span class="view-project" aria-hidden="true">Read details ↓</span>
+            <span class="view-project" aria-hidden="true">Read details ↑</span>
           </a>
           <div class="project-info">
             <h3 id="p-pos">Web POS cashier</h3>
@@ -197,7 +302,7 @@
               </div>
             </div>
             <p class="scan-copy" aria-hidden="true">Check-in and check-out at stadiums and event venues.</p>
-            <span class="view-project" aria-hidden="true">Read details ↓</span>
+            <span class="view-project" aria-hidden="true">Read details ↑</span>
           </a>
           <div class="project-info">
             <h3 id="p-scan">Event Scanner</h3>
@@ -224,7 +329,7 @@
                 <em>Price found</em>
               </div>
             </div>
-            <span class="view-project" aria-hidden="true">Read details ↓</span>
+            <span class="view-project" aria-hidden="true">Read details ↑</span>
           </a>
           <div class="project-info">
             <h3 id="p-price">Price Check</h3>
@@ -258,106 +363,6 @@
           </div>
         </article>
       </div>
-    </section>
-
-    <!-- Experience -->
-    <section class="experience section" id="experience" aria-labelledby="experience-title">
-      <div class="section-heading">
-        <p class="section-meta">Jan 2021 – Oct 2026<br>Germany, remote from Morocco</p>
-        <div>
-          <h2 id="experience-title">Nearly six years at 3POS.</h2>
-          <p class="section-lede">Software developer, front-end and mobile, in a cross-functional team. 3POS sells point-of-sale systems to restaurants, hotels, shops, stadiums and event venues. The apps below are used every day by staff and their customers. I also onboarded a new developer, walking them through how the products work and their key workflows.</p>
-        </div>
-      </div>
-
-      <div class="experience-group">
-        <div class="group-heading">
-          <h3>Web apps</h3>
-          <p>Vue / Nuxt / TypeScript</p>
-        </div>
-        <ul class="rows" role="list">
-          <li class="row" id="kitchen-monitor">
-            <h4>Kitchen Monitor</h4>
-            <div class="row-body">
-              <p>A real-time Vue app that streams orders over WebSockets from the POS and online channels to kitchen screens in customer venues, so an order placed at the counter or online shows up in the kitchen straight away.</p>
-              <p>I led its migration from Vue 2 to Vue 3, which made rendering <strong>30% faster</strong>.</p>
-            </div>
-            <p class="row-stack">Vue 3, TypeScript, WebSockets</p>
-          </li>
-          <li class="row" id="pickup-monitor">
-            <h4>Pickup Monitor</h4>
-            <div class="row-body"><p>A real-time Vue app that streams live orders over WebSockets from the POS and online channels to pickup screens in customer venues.</p></div>
-            <p class="row-stack">Vue, WebSockets</p>
-          </li>
-          <li class="row" id="admin-portal">
-            <h4>Admin portal</h4>
-            <div class="row-body"><p>Built on REST APIs. Administrators manage orders, invoices, subscriptions, users and analytics in one place, which made onboarding new customers much faster.</p></div>
-            <p class="row-stack">Nuxt, TypeScript, Tailwind CSS</p>
-          </li>
-          <li class="row" id="ordering">
-            <h4>Kiosk and QR ordering</h4>
-            <div class="row-body"><p>A self-service ordering kiosk for fast-food restaurants, and a QR-code app that lets diners order from their own phones. Both raised order volume, took load off the counter and turned tables faster.</p></div>
-            <p class="row-stack">Vue, TypeScript</p>
-          </li>
-          <li class="row" id="online-ordering">
-            <h4>Online ordering and reservations</h4>
-            <div class="row-body"><p>Delivery and pickup ordering, plus table booking with dish pre-ordering. It made orders more accurate for staff and customers, and real-time availability prevents double bookings.</p></div>
-            <p class="row-stack">Vue, REST APIs</p>
-          </li>
-          <li class="row" id="cashier">
-            <h4>Web POS cashier</h4>
-            <div class="row-body"><p>Features and production fixes for the cashier system restaurant staff use all shift. I cut load times with code splitting, lazy loading and caching.</p></div>
-            <p class="row-stack">Vue, TypeScript</p>
-          </li>
-          <li class="row" id="wordpress">
-            <h4>Product websites</h4>
-            <div class="row-body"><p>Seven responsive marketing and help-center sites for the company’s products, including <a href="https://www.3pos.de/">3pos.de</a>.</p></div>
-            <p class="row-stack">WordPress</p>
-          </li>
-        </ul>
-      </div>
-
-      <div class="experience-group">
-        <div class="group-heading">
-          <h3>Mobile apps</h3>
-          <p>React Native / Flutter / iOS / Android</p>
-        </div>
-        <p class="group-note">I owned five cross-platform apps end to end, from features and native modules to App Store and Google Play releases.</p>
-        <ul class="rows" role="list">
-          <li class="row" id="event-scanner">
-            <h4>Event Scanner</h4>
-            <div class="row-body"><p>Ticket scanning for check-in and check-out at stadiums and event venues. It <strong>cut attendee wait times by 50%</strong>.</p></div>
-            <p class="row-stack">React Native</p>
-          </li>
-          <li class="row" id="stock-taking">
-            <h4>Stock Taking</h4>
-            <div class="row-body"><p>Barcode-based inventory counting that replaced manual entry and made stock levels more accurate.</p></div>
-            <p class="row-stack">React Native</p>
-          </li>
-          <li class="row" id="price-check">
-            <h4>Price Check</h4>
-            <div class="row-body"><p>Scan an EAN barcode, see the price instantly. It <strong>cut pricing errors by 20%</strong>.</p></div>
-            <p class="row-stack">Flutter</p>
-          </li>
-          <li class="row" id="controller">
-            <h4>Controller</h4>
-            <div class="row-body"><p>Real-time sales and system dashboards that give owners live insight into operations.</p></div>
-            <p class="row-stack">Flutter</p>
-          </li>
-          <li class="row" id="time-tracking">
-            <h4>Time Tracking</h4>
-            <div class="row-body"><p>Features for the app managers use to track work hours and manage staff shifts.</p></div>
-            <p class="row-stack">Flutter</p>
-          </li>
-        </ul>
-      </div>
-
-      <ul class="impact-grid" role="list" aria-label="Measured results">
-        <li><strong>50%</strong><span>Shorter waits at event gates</span></li>
-        <li><strong>30%</strong><span>Faster rendering after the Vue 3 migration</span></li>
-        <li><strong>20%</strong><span>Fewer pricing errors in shops</span></li>
-        <li><strong>5</strong><span>Apps shipped to the App Store and Google Play</span></li>
-      </ul>
     </section>
 
     <!-- Outside work -->
@@ -427,17 +432,20 @@
     <section class="skills-section section" id="skills" aria-labelledby="skills-title">
       <div class="section-heading">
         <p class="section-meta">Since 2018</p>
-        <h2 id="skills-title">Skills and<br>background.</h2>
+        <div>
+          <h2 id="skills-title">Skills and<br>background.</h2>
+          <p class="section-lede">Experienced in complex forms, state management, REST APIs, WebSockets, performance optimization, responsive design and accessibility.</p>
+        </div>
       </div>
 
       <dl class="skills">
         <div><dt>Languages</dt><dd>TypeScript, JavaScript, Dart, HTML5, CSS3, SQL</dd></div>
-        <div><dt>Front-end</dt><dd>Vue.js (2 and 3), Nuxt.js, Pinia, Vuex, Vuetify, Tailwind CSS, Bootstrap</dd></div>
+        <div><dt>Front-end</dt><dd>Vue.js (2 and 3), Nuxt.js, Pinia, Vuex, VeeValidate, Zod, Vuetify, Tailwind CSS, Bootstrap</dd></div>
         <div><dt>Back-end</dt><dd>Node.js, Express.js, PostgreSQL</dd></div>
         <div><dt>Mobile</dt><dd>React Native, Flutter, Redux, Provider, native modules for iOS and Android</dd></div>
-        <div><dt>DevOps and tools</dt><dd>Git, Docker, CI/CD (GitHub Actions, GitLab CI)</dd></div>
+        <div><dt>DevOps and tools</dt><dd>Git, Vite, Docker, CI/CD (GitHub Actions, GitLab CI)</dd></div>
         <div><dt>Testing and APIs</dt><dd>Vitest, RESTful APIs, WebSockets</dd></div>
-        <div><dt>CMS and e-commerce</dt><dd>WordPress, Shopify</dd></div>
+        <div><dt>CMS</dt><dd>WordPress</dd></div>
       </dl>
 
       <dl class="background">
@@ -455,7 +463,7 @@
           <p class="section-lede">I’m available now for full-time or part-time work. Email is the fastest way to reach me.</p>
           <div class="contact-actions">
             <a href="mailto:izem.hsn@gmail.com">izem.hsn@gmail.com</a>
-            <a href="assets/El_Houssaine_IZEM_Full-Stack_Developer_Resume.pdf" download>Résumé (PDF)</a>
+            <a href="assets/El_Houssaine_IZEM_Full-Stack_Developer_Resume.pdf?v=2" download>Résumé (PDF)</a>
           </div>
         </div>
       </div>

@@ -44,8 +44,10 @@
    Base
    ------------------------------------------------------------ */
 *, *::before, *::after { box-sizing: border-box; }
-/* scroll-padding keeps anchors and keyboard focus clear of the fixed header. */
-html { scroll-behavior: smooth; scroll-padding-top: 72px; -webkit-text-size-adjust: 100%; }
+/* scroll-padding keeps anchors and keyboard focus clear of the fixed header.
+   It matches the scrolled header's height (58px), so a section you jump to
+   starts right under the header with no strip of the section above showing. */
+html { scroll-behavior: smooth; scroll-padding-top: 58px; -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
   color: var(--paper);
@@ -222,11 +224,11 @@ img { display: block; max-width: 100%; height: auto; }
    Section scaffolding
    ------------------------------------------------------------ */
 .section { padding: clamp(90px, 11vw, 170px) var(--page-pad); }
-/* Off-screen sections skip layout and paint until they near the viewport.
-   "auto" makes the browser remember each section's real height once seen. */
-.section { content-visibility: auto; contain-intrinsic-size: auto 1400px; }
-.work, .side { background: var(--ink); }
-.experience, .contact { background: var(--blue); }
+/* No content-visibility: auto on sections. Its placeholder heights made nav
+   links scroll to the wrong place (e.g. "Skills" stopped mid-Work), and the
+   page is small enough to lay out in full. */
+.experience, .side { background: var(--ink); }
+.work, .contact { background: var(--blue); }
 .skills-section { color: var(--ink); background: var(--paper); }
 
 .section-heading {
@@ -574,7 +576,7 @@ a.project-visual:hover .view-project, a.project-visual:focus-visible .view-proje
   gap: 8px 28px;
   padding-block: 22px;
   border-bottom: 1px solid var(--line);
-  scroll-margin-top: 16px;
+  scroll-margin-top: 30px;
 }
 .row h4 { font-size: clamp(18px, 1.5vw, 23px); font-weight: 500; line-height: 1.15; letter-spacing: -.015em; }
 .row-body { display: grid; gap: 10px; max-width: 36em; font-size: clamp(15px, 1.1vw, 17px); }
