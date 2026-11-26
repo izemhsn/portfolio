@@ -209,6 +209,9 @@ img { display: block; max-width: 100%; height: auto; }
   background: var(--paper);
 }
 .hero-actions a:first-child:hover, .contact-actions a:first-child:hover { opacity: 1; color: var(--ink); background: var(--lime); }
+/* Copy-email button, added by script.js next to the contact email */
+.copy-email { min-height: 24px; padding: 0; border: 0; border-bottom: 1px solid currentColor; color: inherit; background: none; font: inherit; cursor: pointer; transition: opacity 200ms; }
+.copy-email:hover { opacity: .7; }
 .round-link {
   display: grid;
   width: 62px;
@@ -250,6 +253,16 @@ img { display: block; max-width: 100%; height: auto; }
 .lede-points { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 clamp(20px, 2.4vw, 40px); margin-top: clamp(36px, 4vw, 56px); }
 .lede-points li { padding-top: 16px; border-top: 1px solid var(--line-strong); color: var(--fog); font-size: clamp(15px, 1.1vw, 17px); line-height: 1.45; }
 .lede-points span { display: block; margin-bottom: 10px; color: var(--paper); font: 11px/1.6 var(--font-mono); text-transform: uppercase; }
+
+/* Scroll reveal: script.js adds .js-reveal to <html> (not with reduced motion), so
+   without JavaScript nothing starts hidden. */
+.js-reveal .reveal { transition: opacity 700ms var(--ease), transform 800ms var(--ease); }
+.js-reveal .reveal:not(.is-visible) { opacity: 0; transform: translateY(28px); }
+/* Printing or saving as PDF never scrolls, so nothing may stay hidden. script.js also
+   fills in the final impact numbers on beforeprint. */
+@media print {
+  .js-reveal .reveal { opacity: 1 !important; transform: none !important; }
+}
 
 /* ------------------------------------------------------------
    Project panels
@@ -416,8 +429,12 @@ a.project-visual:hover .view-project, a.project-visual:focus-visible .view-proje
   .kds-live { display: none; }
 }
 
-/* Admin portal */
-.project-visual--admin { background: var(--putty); }
+/* Short "try it" line under or beside a working demo */
+.demo-hint { font-size: 14px; line-height: 1.4; letter-spacing: 0; }
+
+/* Admin portal (live: the tabs switch the table) */
+.project-visual--admin { gap: 22px; align-content: center; background: var(--putty); }
+.project-visual--admin > .demo-hint { width: 86%; }
 .browser-frame { width: 86%; color: #202020; background: var(--paper); box-shadow: 0 35px 80px rgba(0, 0, 0, .18); transform: rotate(-2deg); }
 .project-visual--admin:hover .browser-frame { transform: rotate(0) scale(1.02); }
 .browser-bar { display: flex; align-items: center; gap: 5px; height: 28px; padding: 0 10px; border-bottom: 1px solid #c9c7c0; }
@@ -429,16 +446,32 @@ a.project-visual:hover .view-project, a.project-visual:focus-visible .view-proje
 .admin-copy strong { margin: 12% 0; font-size: clamp(20px, 3vw, 50px); font-weight: 600; line-height: .95; letter-spacing: -.05em; }
 .admin-copy em { padding-bottom: 2px; border-bottom: 1px solid; font-style: normal; }
 .admin-table { padding: 6%; color: var(--paper); background: #161616; font: clamp(6px, .85vw, 13px) var(--font-mono); }
-.admin-tabs { display: flex; gap: 10%; padding-bottom: 7%; }
-.admin-tabs b { font-weight: 400; border-bottom: 1px solid var(--coral); }
-.admin-tabs span { color: #888; }
-.admin-table p { display: grid; grid-template-columns: 1fr 1fr auto; padding-block: 6%; border-top: 1px solid #444; }
+.admin-tabs { display: flex; flex-wrap: wrap; gap: 0 8%; padding-bottom: 5%; }
+/* Real tab buttons: a 9px floor and 24px height keep them readable and tappable on phones. */
+.admin-tabs button {
+  min-height: 24px;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  color: #9a9a9a;
+  background: none;
+  font: clamp(9px, .85vw, 13px) var(--font-mono);
+  cursor: pointer;
+  transition: color 200ms, border-color 200ms;
+}
+.admin-tabs button:hover { color: var(--paper); }
+.admin-tabs button[aria-selected="true"] { color: var(--paper); border-bottom-color: var(--coral); }
+.admin-table :focus-visible { outline-offset: 2px; }
+.admin-table p { display: grid; grid-template-columns: 1fr 1fr auto; gap: 6px; padding-block: 6%; border-top: 1px solid #444; }
 .admin-table p b { font-weight: 400; }
 .admin-table p span:nth-child(2) { color: var(--lime); }
-.admin-table p:nth-child(4) span:nth-child(2) { color: var(--coral); }
+.admin-table p span.is-warn { color: var(--coral); }
+.admin-rows.is-switching p { animation: demo-in 380ms var(--ease) both; animation-delay: calc(var(--i, 0) * 45ms); }
+@keyframes demo-in { from { opacity: 0; transform: translateY(6px); } }
 
-/* Web POS cashier */
-.project-visual--pos { background: var(--pink); }
+/* Web POS cashier (live: tap items to build an order, then pay) */
+.project-visual--pos { gap: 22px; align-content: center; background: var(--pink); }
+.project-visual--pos > .demo-hint { width: 86%; }
 .cashier-frame { display: grid; grid-template-columns: 1.5fr 1fr; width: 86%; min-height: clamp(250px, 34vw, 510px); color: #161616; background: #f7f5ee; box-shadow: 0 35px 80px rgba(110, 20, 60, .22); transform: rotate(-1.5deg); }
 .project-visual--pos:hover .cashier-frame { transform: rotate(0) scale(1.02); }
 .cashier-menu { display: flex; flex-direction: column; padding: 5%; }
@@ -447,19 +480,52 @@ a.project-visual:hover .view-project, a.project-visual:focus-visible .view-proje
 .cashier-top span { font: clamp(6px, .7vw, 10px) var(--font-mono); }
 .cashier-menu > strong { margin: 6% 0; font-size: clamp(18px, 3vw, 46px); font-weight: 600; line-height: .95; letter-spacing: -.05em; }
 .cashier-items { display: grid; flex: 1; grid-template-columns: repeat(3, 1fr); gap: 3%; }
-.cashier-items i { display: flex; align-items: end; min-height: clamp(36px, 6vw, 90px); padding: 8%; background: #e4e1d6; font: clamp(6px, .8vw, 12px) var(--font-mono); font-style: normal; }
-.cashier-items i:nth-child(1) { color: var(--paper); background: var(--blue); }
-.cashier-items i:nth-child(4) { background: var(--lime); }
-.cashier-items i:nth-child(5) { background: var(--coral); }
+/* Menu tiles are real buttons: a 9px floor keeps their labels readable on phones. */
+.cashier-items button {
+  display: flex;
+  align-items: end;
+  min-height: clamp(36px, 6vw, 90px);
+  padding: 8%;
+  border: 0;
+  color: inherit;
+  background: #e4e1d6;
+  font: clamp(9px, .8vw, 12px) var(--font-mono);
+  text-align: left;
+  cursor: pointer;
+  transition: box-shadow 150ms, transform 150ms;
+}
+.cashier-items button:hover { box-shadow: inset 0 0 0 2px #161616; }
+.cashier-items button:active { transform: scale(.96); }
+.cashier-items button:nth-child(1) { color: var(--paper); background: var(--blue); }
+.cashier-items button:nth-child(4) { background: var(--lime); }
+.cashier-items button:nth-child(5) { background: var(--coral); }
+.cashier-frame :focus-visible { outline-color: #161616; outline-offset: 2px; }
 .cashier-ticket { display: flex; flex-direction: column; padding: 8%; color: var(--paper); background: #161616; }
+.cashier-ticket :focus-visible { outline-color: var(--paper); }
 .cashier-ticket small { margin-bottom: 12%; color: #aaa; font: clamp(6px, .7vw, 10px) var(--font-mono); text-transform: uppercase; }
-.cashier-ticket p { display: flex; justify-content: space-between; gap: 8px; padding-block: 7%; border-bottom: 1px solid #444; font-size: clamp(7px, 1vw, 15px); }
+.cashier-lines li { display: flex; justify-content: space-between; gap: 8px; padding-block: 7%; border-bottom: 1px solid #444; font-size: clamp(7px, 1vw, 15px); }
+.cashier-lines li.is-new { animation: demo-in 320ms var(--ease) both; }
+.cashier-lines li.is-empty { justify-content: start; border-bottom: 0; color: #aaa; }
 .cashier-ticket b { font-weight: 400; }
-.cashier-ticket em { margin-top: auto; padding: 8%; color: var(--ink); background: var(--pink); font-size: clamp(7px, 1.1vw, 17px); font-style: normal; font-weight: 600; text-align: center; }
+.cashier-pay {
+  min-height: 28px;
+  margin-top: auto;
+  padding: 8%;
+  border: 0;
+  color: var(--ink);
+  background: var(--pink);
+  font: 600 clamp(10px, 1.1vw, 17px) var(--font-sans);
+  cursor: pointer;
+  transition: background-color 250ms;
+}
+.cashier-pay:hover { background: #ffc6dc; }
+.cashier-pay.is-paid { background: var(--lime); }
+.cashier-pay[aria-disabled="true"] { cursor: default; opacity: .55; }
 
 /* Event Scanner */
 .project-visual--scan { display: block; background: var(--lime); }
-.scan-mark { font-size: clamp(64px, 10vw, 170px); font-weight: 600; line-height: .8; letter-spacing: -.09em; }
+/* Left-aligned with the copy below; the panel's place-items would otherwise centre it under the phone. */
+.scan-mark { justify-self: start; font-size: clamp(64px, 10vw, 170px); font-weight: 600; line-height: .8; letter-spacing: -.09em; }
 /* The C sits in a round "lens": a true circle, with the letter centred inside. */
 .scan-mark span {
   display: inline-grid;
@@ -476,6 +542,7 @@ a.project-visual:hover .view-project, a.project-visual:focus-visible .view-proje
   vertical-align: baseline;
 }
 .scan-copy { position: absolute; bottom: 9%; left: clamp(24px, 5vw, 80px); max-width: 15em; font-size: clamp(16px, 2vw, 30px); line-height: 1.1; letter-spacing: -.02em; }
+.scan-copy .demo-hint { display: block; max-width: 22em; margin-top: .9em; }
 .phone {
   position: absolute;
   right: 8%;
@@ -514,9 +581,31 @@ a.project-visual:hover .view-project, a.project-visual:focus-visible .view-proje
 }
 .ph-top { display: flex; justify-content: space-between; font-weight: 650; }
 .ph-top span + span { color: #5a5a5e; font-family: var(--font-mono); font-weight: 400; }
-.ph-frame { padding: 14%; border: 2px solid var(--blue); border-radius: 8px; background: #fff; }
+/* The code is the scan button. */
+.ph-frame {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 14%;
+  overflow: hidden;
+  border: 2px solid var(--blue);
+  border-radius: 8px;
+  color: var(--ink);
+  background: #fff;
+  cursor: pointer;
+  transition: box-shadow 200ms;
+}
+.ph-frame:hover { box-shadow: 0 0 0 3px var(--ink); }
+.phone :focus-visible { outline-color: var(--blue); outline-offset: 3px; }
 .ph-frame svg { display: block; width: 100%; height: auto; }
-.ph-result { display: flex; align-items: flex-start; gap: 6px; padding: 7%; border-radius: 6px; color: #08302c; background: var(--teal); line-height: 1.25; }
+.ph-laser, .price-scan i { opacity: 0; }
+.ph-laser { position: absolute; top: 50%; right: 4%; left: 4%; height: 2px; background: #ff4d3d; box-shadow: 0 0 8px #ff4d3d; }
+.ph-frame.is-scanning .ph-laser { animation: laser 520ms ease-in-out; }
+@keyframes laser { from { top: 10%; opacity: 1; } to { top: 90%; opacity: 1; } }
+.ph-result { display: flex; align-items: flex-start; gap: 6px; padding: 7%; border-radius: 6px; color: #08302c; background: var(--teal); line-height: 1.25; transition: background-color 250ms; }
+.ph-result[data-state="dup"] { color: var(--ink); background: var(--coral); }
+.ph-result[data-state="out"] { color: var(--ink); background: var(--sky); }
+.ph-result.is-new { animation: demo-in 320ms var(--ease) both; }
 .ph-result svg { flex: none; width: 1.4em; fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
 .ph-result strong { display: block; font-size: 1.15em; }
 .ph-count { margin-top: auto; color: #5a5a5e; }
@@ -527,15 +616,38 @@ a.project-visual:hover .view-project, a.project-visual:focus-visible .view-proje
 .price-copy { display: flex; flex-direction: column; align-items: start; justify-self: start; }
 .price-copy small { font: clamp(7px, .8vw, 11px) var(--font-mono); text-transform: uppercase; }
 .price-copy strong { margin: 10% 0; font-size: clamp(30px, 6vw, 92px); font-weight: 500; line-height: .9; letter-spacing: -.06em; }
-.price-copy span { font-size: clamp(11px, 1.3vw, 20px); }
+.price-copy > span { font-size: clamp(11px, 1.3vw, 20px); }
+.price-copy .demo-hint { display: block; max-width: 22em; margin-top: .9em; }
 .price-phone { width: clamp(118px, 21vw, 280px); aspect-ratio: .5; padding: 4%; border-radius: 12% / 6%; background: #111; box-shadow: 0 35px 80px rgba(4, 60, 54, .35); transform: rotate(5deg); }
 .project-visual--price:hover .price-phone { transform: rotate(0) scale(1.02); }
 .price-screen { display: flex; flex-direction: column; height: 100%; padding: 8%; border-radius: 9% / 4.5%; color: #161616; background: #f7f5ee; }
-.price-scan { position: relative; display: flex; flex-direction: column; justify-content: end; height: 45%; margin-bottom: 12%; padding: 8%; background: repeating-linear-gradient(90deg, #161616 0 2px, transparent 2px 5px, #161616 5px 9px, transparent 9px 11px); }
+/* The barcode is the scan button. */
+.price-scan {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  width: 100%;
+  height: 45%;
+  margin-bottom: 12%;
+  padding: 8%;
+  border: 0;
+  color: inherit;
+  background: repeating-linear-gradient(90deg, #161616 0 2px, transparent 2px 5px, #161616 5px 9px, transparent 9px 11px);
+  font: inherit;
+  cursor: pointer;
+  transition: box-shadow 200ms;
+}
+.price-scan:hover { box-shadow: 0 0 0 3px #161616; }
+.price-phone :focus-visible { outline-color: #161616; outline-offset: 3px; }
 .price-scan i { position: absolute; top: 45%; right: -4%; left: -4%; height: 2px; background: #ff4d3d; box-shadow: 0 0 10px #ff4d3d; }
+.price-scan:not(.is-scanning) i { opacity: 1; }
+.price-scan.is-scanning i { animation: laser 520ms ease-in-out; }
 .price-scan small { align-self: center; padding: 1px 4px; background: #f7f5ee; font: clamp(5px, .7vw, 10px) var(--font-mono); white-space: nowrap; }
-.price-screen > small { font-size: clamp(7px, 1vw, 15px); }
-.price-screen > strong { margin: 4% 0 auto; font-size: clamp(26px, 4.4vw, 66px); font-weight: 500; line-height: 1; letter-spacing: -.05em; }
+.price-result { display: flex; flex-direction: column; margin-bottom: auto; }
+.price-result.is-new { animation: demo-in 320ms var(--ease) both; }
+.price-name { font-size: clamp(7px, 1vw, 15px); }
+.price-value { margin-top: 4%; font-size: clamp(26px, 4.4vw, 66px); font-weight: 500; line-height: 1; letter-spacing: -.05em; }
 .price-screen em { padding: 7%; color: #08302c; background: var(--teal); font: clamp(6px, .8vw, 12px) var(--font-mono); font-style: normal; text-align: center; }
 
 /* 3pos.de */
@@ -598,7 +710,7 @@ a.project-visual:hover .view-project, a.project-visual:focus-visible .view-proje
 .impact-grid li { min-height: 220px; padding: 25px; border-right: 1px solid var(--line-strong); }
 .impact-grid li:last-child { border-right: 0; }
 .impact-grid strong { display: block; margin-bottom: 55px; font-size: clamp(45px, 6vw, 92px); font-weight: 400; line-height: 1; letter-spacing: -.06em; }
-.impact-grid span { display: block; max-width: 13em; font-size: 14px; line-height: 1.35; }
+.impact-grid li > span { display: block; max-width: 13em; font-size: 14px; line-height: 1.35; }
 
 /* ------------------------------------------------------------
    Outside work
@@ -785,18 +897,28 @@ footer > p:last-child { justify-self: end; }
   .project-visual { min-height: 92vw; padding: 20px; }
   .project-visual--kds { min-height: 0; }
   .browser-frame, .cashier-frame, .xtremio-frame, .web-frame { width: 100%; }
+  .project-visual--admin > .demo-hint, .project-visual--pos > .demo-hint { width: 100%; }
   .project-visual--price { grid-template-columns: 1fr; justify-items: center; }
   .price-copy { justify-self: stretch; }
   .project-visual--scan { min-height: 132vw; }
   .phone, .project-visual--scan:hover .phone { top: auto; right: 7%; bottom: 7%; width: 40vw; transform: rotate(6deg); }
   .scan-mark { font-size: 22vw; }
   .scan-copy { max-width: 7.5em; font-size: 17px; }
+  .admin-tabs { gap: 0 .9em; }
+  .scan-copy .demo-hint { max-width: 8em; }
   .impact-grid li { min-height: 170px; padding: 18px; }
   .impact-grid strong { margin-bottom: 35px; }
   .contact-link span { font-size: 15vw; }
   .contact-link svg { width: 40px; }
   .contact-link { margin-block: 90px; }
   .social-links { gap: 16px; }
+}
+
+/* Smallest phones (320–360px): shrink the scanner phone and copy so they don't overlap. */
+@media (max-width: 360px) {
+  .phone, .project-visual--scan:hover .phone { width: 36vw; }
+  .scan-copy { max-width: 6.5em; font-size: 15px; }
+  .scan-copy .demo-hint { font-size: 13px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -230,116 +230,129 @@
           </div>
         </article>
 
-        <!-- 2. Admin portal -->
-        <article class="project" aria-labelledby="p-admin">
-          <a class="project-visual project-visual--admin" href="#admin-portal">
-            <span class="sr-only">Read about the admin portal</span>
-            <div class="browser-frame" aria-hidden="true">
-              <div class="browser-bar"><span></span><span></span><span></span><b>3POS Admin</b></div>
+        <!-- 2. Admin portal: a working demo, tabs switch the table -->
+        <article class="project project--live" aria-labelledby="p-admin">
+          <div class="project-visual project-visual--admin">
+            <div class="browser-frame">
+              <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span><b>3POS Admin</b></div>
               <div class="admin-ui">
-                <div class="admin-copy"><small>Orders / invoices / users</small><strong>Every location.<br>One portal.</strong><em>Onboard a customer</em></div>
+                <div class="admin-copy" aria-hidden="true"><small>Orders / invoices / users</small><strong>Every location.<br>One portal.</strong><em>Onboard a customer</em></div>
                 <div class="admin-table">
-                  <div class="admin-tabs"><b>Orders</b><span>Invoices</span><span>Users</span></div>
-                  <p><span>#1042</span><span>Paid</span><b>84.50</b></p>
-                  <p><span>#1041</span><span>Paid</span><b>27.00</b></p>
-                  <p><span>#1040</span><span>Open</span><b>112.90</b></p>
-                  <p><span>#1039</span><span>Paid</span><b>46.20</b></p>
-                  <p><span>#1038</span><span>Paid</span><b>63.75</b></p>
+                  <div class="admin-tabs" role="tablist" aria-label="Admin portal demo">
+                    <button type="button" role="tab" id="admin-tab-orders" aria-controls="admin-rows" aria-selected="true" data-tab="orders">Orders</button>
+                    <button type="button" role="tab" id="admin-tab-invoices" aria-controls="admin-rows" aria-selected="false" tabindex="-1" data-tab="invoices">Invoices</button>
+                    <button type="button" role="tab" id="admin-tab-users" aria-controls="admin-rows" aria-selected="false" tabindex="-1" data-tab="users">Users</button>
+                  </div>
+                  <div class="admin-rows" id="admin-rows" role="tabpanel" aria-labelledby="admin-tab-orders">
+                    <p><span>#1042</span><span>Paid</span><b>84.50</b></p>
+                    <p><span>#1041</span><span>Paid</span><b>27.00</b></p>
+                    <p><span>#1040</span><span class="is-warn">Open</span><b>112.90</b></p>
+                    <p><span>#1039</span><span>Paid</span><b>46.20</b></p>
+                    <p><span>#1038</span><span>Paid</span><b>63.75</b></p>
+                  </div>
                 </div>
               </div>
             </div>
-            <span class="view-project" aria-hidden="true">Read details ↑</span>
-          </a>
+            <p class="demo-hint">A small working copy of the portal. Switch the tabs to browse orders, invoices and users.</p>
+          </div>
           <div class="project-info">
-            <h3 id="p-admin">Admin portal</h3>
+            <h3 id="p-admin"><a href="#admin-portal">Admin portal</a></h3>
             <p>Orders, invoices, subscriptions and analytics</p>
             <p>Nuxt / TypeScript / Vite / Zod</p>
             <span>Faster onboarding</span>
           </div>
         </article>
 
-        <!-- 3. Web POS cashier -->
-        <article class="project" aria-labelledby="p-pos">
-          <a class="project-visual project-visual--pos" href="#cashier">
-            <span class="sr-only">Read about the web POS cashier</span>
-            <div class="cashier-frame" aria-hidden="true">
+        <!-- 3. Web POS cashier: a working demo, tap items to build an order, then pay -->
+        <article class="project project--live" aria-labelledby="p-pos">
+          <div class="project-visual project-visual--pos">
+            <div class="cashier-frame">
               <div class="cashier-menu">
-                <div class="cashier-top"><b>3POS</b><span>Cashier / Table 12</span></div>
-                <strong>Every order.<br>Every shift.</strong>
-                <div class="cashier-items"><i>Burger</i><i>Pizza</i><i>Salad</i><i>Fries</i><i>Cola</i><i>Water</i></div>
+                <div class="cashier-top" aria-hidden="true"><b>3POS</b><span>Cashier / Table 12</span></div>
+                <strong aria-hidden="true">Every order.<br>Every shift.</strong>
+                <div class="cashier-items" role="group" aria-label="Menu items">
+                  <button type="button" data-name="Burger" data-price="11.50">Burger</button>
+                  <button type="button" data-name="Pizza" data-price="9.90">Pizza</button>
+                  <button type="button" data-name="Salad" data-price="8.50">Salad</button>
+                  <button type="button" data-name="Fries" data-price="4.50">Fries</button>
+                  <button type="button" data-name="Cola" data-price="3.00">Cola</button>
+                  <button type="button" data-name="Water" data-price="2.00">Water</button>
+                </div>
               </div>
               <div class="cashier-ticket">
-                <small>Current order</small>
-                <p><span>2 × Burger</span><b>23.00</b></p>
-                <p><span>1 × Fries</span><b>4.50</b></p>
-                <p><span>2 × Cola</span><b>6.00</b></p>
-                <em>Pay 33.50</em>
+                <small id="cashier-ticket-title">Current order</small>
+                <ul class="cashier-lines" role="list" aria-labelledby="cashier-ticket-title">
+                  <li><span>2 × Burger</span><b>23.00</b></li>
+                  <li><span>1 × Fries</span><b>4.50</b></li>
+                  <li><span>2 × Cola</span><b>6.00</b></li>
+                </ul>
+                <button type="button" class="cashier-pay">Pay 33.50</button>
               </div>
             </div>
-            <span class="view-project" aria-hidden="true">Read details ↑</span>
-          </a>
+            <p class="demo-hint">A small working copy of the till. Tap items to add them to the order, then pay.</p>
+            <p class="sr-only cashier-status" aria-live="polite"></p>
+          </div>
           <div class="project-info">
-            <h3 id="p-pos">Web POS cashier</h3>
+            <h3 id="p-pos"><a href="#cashier">Web POS cashier</a></h3>
             <p>The till restaurant staff use all shift</p>
             <p>Code splitting / Lazy loading / Caching</p>
             <span>Shorter load times</span>
           </div>
         </article>
 
-        <!-- 4. Event Scanner -->
-        <article class="project" aria-labelledby="p-scan">
-          <a class="project-visual project-visual--scan" href="#event-scanner">
-            <span class="sr-only">Read about Event Scanner</span>
+        <!-- 4. Event Scanner: a working demo, tap the code to scan -->
+        <article class="project project--live" aria-labelledby="p-scan">
+          <div class="project-visual project-visual--scan">
             <div class="scan-mark" aria-hidden="true">S<span>C</span>AN</div>
-            <div class="phone" aria-hidden="true">
+            <div class="phone">
               <div class="phone-screen">
-                <p class="ph-top"><span>Event Scanner</span><span>Gate B</span></p>
-                <div class="ph-frame">
-                  <svg viewBox="0 0 21 21" shape-rendering="crispEdges">
+                <p class="ph-top" aria-hidden="true"><span>Event Scanner</span><span>Gate B</span></p>
+                <button type="button" class="ph-frame" aria-label="Scan the next ticket">
+                  <svg viewBox="0 0 21 21" shape-rendering="crispEdges" aria-hidden="true">
                     <path d="M0 0h7v7H0zM14 0h7v7h-7zM0 14h7v7H0z" fill="currentColor"/>
                     <path d="M1 1h5v5H1zM15 1h5v5h-5zM1 15h5v5H1z" fill="#f4f3ef"/>
                     <path d="M2 2h3v3H2zM16 2h3v3h-3zM2 16h3v3H2zM8 0h2v2H8zM11 1h2v3h-2zM8 3h2v2H8zM9 6h3v2H9zM0 8h2v2H0zM3 8h3v1H3zM7 9h2v3H7zM10 9h4v2h-4zM15 8h2v2h-2zM18 9h3v2h-3zM1 11h4v2H1zM12 12h3v2h-3zM16 12h2v3h-2zM19 12h2v2h-2zM8 13h3v2H8zM9 16h2v3H9zM12 15h3v2h-3zM13 18h4v3h-4zM18 16h3v2h-3zM19 19h2v2h-2zM8 19h3v2H8z" fill="currentColor"/>
                   </svg>
+                  <i class="ph-laser" aria-hidden="true"></i>
+                </button>
+                <div class="ph-result" data-state="in" role="status">
+                  <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8"/></svg>
+                  <span><strong>Checked in</strong> <span class="ph-ticket">Ticket 4471, Main stand</span></span>
                 </div>
-                <div class="ph-result">
-                  <svg viewBox="0 0 20 20"><path d="M4.5 10.5l3.5 3.5 7.5-8"/></svg>
-                  <span><strong>Checked in</strong>Ticket 4471, Main stand</span>
-                </div>
-                <p class="ph-count"><strong>1,284</strong> scanned today</p>
+                <p class="ph-count" aria-hidden="true"><strong>1,284</strong> scanned today</p>
               </div>
             </div>
-            <p class="scan-copy" aria-hidden="true">Check-in and check-out at stadiums and event venues.</p>
-            <span class="view-project" aria-hidden="true">Read details ↑</span>
-          </a>
+            <p class="scan-copy">Check-in and check-out at stadiums and event venues. <span class="demo-hint">Tap the code to scan a ticket.</span></p>
+          </div>
           <div class="project-info">
-            <h3 id="p-scan">Event Scanner</h3>
+            <h3 id="p-scan"><a href="#event-scanner">Event Scanner</a></h3>
             <p>iOS &amp; Android ticket scanning</p>
             <p>React Native / Native modules</p>
             <span>−50% wait times</span>
           </div>
         </article>
 
-        <!-- 5. Price Check -->
-        <article class="project" aria-labelledby="p-price">
-          <a class="project-visual project-visual--price" href="#price-check">
-            <span class="sr-only">Read about Price Check</span>
-            <div class="price-copy" aria-hidden="true">
-              <small>EAN barcode lookup</small>
-              <strong>Scan it.<br>Price it.</strong>
-              <span>Instant answers on the shop floor.</span>
+        <!-- 5. Price Check: a working demo, tap the barcode to scan -->
+        <article class="project project--live" aria-labelledby="p-price">
+          <div class="project-visual project-visual--price">
+            <div class="price-copy">
+              <small aria-hidden="true">EAN barcode lookup</small>
+              <strong aria-hidden="true">Scan it.<br>Price it.</strong>
+              <span>Instant answers on the shop floor. <span class="demo-hint">Tap the barcode to scan another product.</span></span>
             </div>
-            <div class="price-phone" aria-hidden="true">
+            <div class="price-phone">
               <div class="price-screen">
-                <div class="price-scan"><i></i><small>4 012345 678901</small></div>
-                <small>Iced tea 0.5 L</small>
-                <strong>2.90</strong>
-                <em>Price found</em>
+                <button type="button" class="price-scan" aria-label="Scan the next product"><i aria-hidden="true"></i><small class="price-ean">4 012345 678901</small></button>
+                <div class="price-result" role="status">
+                  <small class="price-name">Iced tea 0.5 L</small>
+                  <strong class="price-value">2.90</strong>
+                </div>
+                <em aria-hidden="true">Price found</em>
               </div>
             </div>
-            <span class="view-project" aria-hidden="true">Read details ↑</span>
-          </a>
+          </div>
           <div class="project-info">
-            <h3 id="p-price">Price Check</h3>
+            <h3 id="p-price"><a href="#price-check">Price Check</a></h3>
             <p>iOS &amp; Android price lookup</p>
             <p>Flutter / Barcode scanning</p>
             <span>−20% pricing errors</span>
