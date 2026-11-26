@@ -33,6 +33,7 @@
   --violet: #5b35f2;
   --putty: #dad7ce;
   --coral: #ff674d;
+  --honey: #ffcf4d;
 
   --font-sans: "Archivo", "Helvetica Neue", Arial, sans-serif;
   --font-mono: "Cascadia Mono", ui-monospace, Consolas, monospace;
@@ -245,6 +246,10 @@ img { display: block; max-width: 100%; height: auto; }
   letter-spacing: -.055em;
 }
 .section-lede { max-width: 34em; margin-top: 32px; font-size: clamp(17px, 1.45vw, 22px); line-height: 1.45; }
+/* Short labelled points under a section intro (Experience: ownership, teamwork, mentoring) */
+.lede-points { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 clamp(20px, 2.4vw, 40px); margin-top: clamp(36px, 4vw, 56px); }
+.lede-points li { padding-top: 16px; border-top: 1px solid var(--line-strong); color: var(--fog); font-size: clamp(15px, 1.1vw, 17px); line-height: 1.45; }
+.lede-points span { display: block; margin-bottom: 10px; color: var(--paper); font: 11px/1.6 var(--font-mono); text-transform: uppercase; }
 
 /* ------------------------------------------------------------
    Project panels
@@ -296,6 +301,8 @@ a.project-visual:hover .view-project, a.project-visual:focus-visible .view-proje
 .project-info h3 a { border-bottom: 1px solid var(--line-strong); }
 .project-info h3 a:hover { border-color: currentColor; }
 .project-info p, .project-info span { color: var(--fog); }
+/* On the blue Work band, grey fog drops to 3.8:1. A paper tint keeps it at 5.5:1 (WCAG AA). */
+.work .project-info p, .work .project-info span { color: rgba(244, 243, 239, .8); }
 .project-info span { font: 11px var(--font-mono); }
 
 /* Mock frames tilt slightly and settle on hover. */
@@ -538,19 +545,10 @@ a.project-visual:hover .view-project, a.project-visual:focus-visible .view-proje
 .web-bar { display: flex; align-items: center; gap: 5px; height: 28px; padding: 0 10px; color: var(--paper); background: #171717; }
 .web-bar span { width: 5px; height: 5px; border-radius: 50%; background: #777; }
 .web-bar b { margin-left: auto; font: 400 clamp(7px, .6vw, 9px) var(--font-mono); }
-.web-ui { min-height: clamp(210px, 31vw, 480px); padding: 4% 5% 6%; }
-.web-nav { display: flex; align-items: center; padding-bottom: 4%; border-bottom: 1px solid #bbb; font: clamp(5px, .65vw, 10px) var(--font-mono); }
-.web-nav b { font: 600 clamp(13px, 1.8vw, 28px) var(--font-sans); letter-spacing: -.03em; }
-.web-nav span { margin: 0 auto; }
-.web-nav i { padding: 7px 10px; color: var(--paper); background: var(--blue); font-style: normal; }
-.web-hero { display: grid; grid-template-columns: 1.25fr .75fr; align-items: center; gap: 7%; padding-top: 7%; }
-.web-hero > div:first-child { display: flex; flex-direction: column; align-items: start; }
-.web-hero small { font: clamp(5px, .6vw, 9px) var(--font-mono); text-transform: uppercase; }
-.web-hero strong { margin: 7% 0; font-size: clamp(21px, 3.6vw, 56px); font-weight: 600; line-height: .9; letter-spacing: -.055em; }
-.web-hero span { font-size: clamp(7px, .8vw, 12px); }
-.pos-device { position: relative; display: grid; aspect-ratio: .78; border: clamp(5px, .8vw, 12px) solid #1d1d1d; border-radius: 5% 5% 3% 3%; background: var(--blue); box-shadow: 12px 16px 25px rgba(0, 0, 0, .2); place-items: center; transform: perspective(600px) rotateY(-10deg); }
-.pos-device i { position: absolute; top: 6%; width: 35%; height: 2%; border-radius: 2px; background: #111; }
-.pos-device b { color: var(--paper); font-size: clamp(12px, 2vw, 32px); }
+.web-frame img { width: 100%; }
+/* localbee.de: honey panel, tilted the other way from 3pos.de */
+.project-visual--localbee { background: var(--honey); }
+.project-visual--localbee .web-frame { box-shadow: 0 35px 80px rgba(90, 60, 0, .25); transform: rotate(-2deg); }
 
 /* ------------------------------------------------------------
    Experience
@@ -593,7 +591,7 @@ a.project-visual:hover .view-project, a.project-visual:focus-visible .view-proje
 
 .impact-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   margin-top: clamp(90px, 11vw, 170px);
   border-block: 1px solid var(--line-strong);
 }
@@ -750,9 +748,12 @@ footer > p:last-child { justify-self: end; }
   .project-visual { min-height: 70vw; }
   .project-visual--kds { min-height: 0; }
   .view-project { display: none; }
+  /* Two columns: "10+" spans the top row, the other four sit in a 2 × 2 grid. */
   .impact-grid { grid-template-columns: 1fr 1fr; }
-  .impact-grid li:nth-child(2) { border-right: 0; }
-  .impact-grid li:nth-child(-n+2) { border-bottom: 1px solid var(--line-strong); }
+  .impact-grid li { border-right: 0; border-bottom: 1px solid var(--line-strong); }
+  .impact-grid li:first-child { grid-column: 1 / -1; }
+  .impact-grid li:nth-child(2), .impact-grid li:nth-child(4) { border-right: 1px solid var(--line-strong); }
+  .impact-grid li:nth-child(n+4) { border-bottom: 0; }
   .sites { grid-template-columns: 1fr 1fr; gap: 64px 24px; }
   .site-visual { aspect-ratio: 4 / 3; }
   .skills > div, .background > div { grid-template-columns: 1fr; }
@@ -764,7 +765,8 @@ footer > p:last-child { justify-self: end; }
 @media (max-width: 640px) {
   .row { grid-template-columns: 1fr; }
   .row-stack { grid-column: 1; }
-  .xtremio-detail ul, .sites { grid-template-columns: 1fr; }
+  .xtremio-detail ul, .sites, .lede-points { grid-template-columns: 1fr; }
+  .lede-points li + li { margin-top: 22px; }
   .group-heading { flex-direction: column; align-items: start; gap: 10px; }
   .group-heading p { text-align: left; }
   .project-info { grid-template-columns: 1fr; }

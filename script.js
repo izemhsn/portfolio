@@ -87,6 +87,9 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').match
   const list = kds.querySelector('.kds-orders');
   const openCount = kds.querySelector('.kds-open');
   const pauseBtn = kds.querySelector('.kds-pause');
+  // Screen readers hear only what the user did. The demo adds and bumps orders on
+  // its own every few seconds, and announcing each of those would be constant noise.
+  const status = document.querySelector('.kds-status');
 
   const MAX_ORDERS = 4;
   const CYCLE_MS = 6500;
@@ -166,6 +169,7 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').match
     o.done = true;
     refresh(o);
     updateCount();
+    if (byUser && status) status.textContent = `Order #${o.id} marked done. ${orders.filter((x) => !x.done).length} open.`;
 
     setTimeout(() => {
       const remove = () => {
