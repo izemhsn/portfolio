@@ -4,7 +4,9 @@
 /*
   # Only this site's own files may load (the font is self-hosted). The JSON-LD
   # block is data, not a script, so script-src 'self' doesn't block it.
-  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+  # connect-src also allows Netlify's Real User Monitoring endpoint: Netlify injects
+  # /.netlify/scripts/rum, which POSTs page-speed data there.
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://ingesteer.services-prod.nsvcs.net; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
