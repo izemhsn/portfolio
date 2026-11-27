@@ -103,7 +103,7 @@
         <ul class="rows" role="list">
           <li class="row" id="admin-portal">
             <h4>Admin portal</h4>
-            <div class="row-body"><p>A self-service portal for 3POS customers and staff that I built as the main developer, on REST APIs and in four languages. Customers order modules and pay through Stripe, pause or change their subscriptions, download invoices as PDF and manage their own users. Admins and resellers manage companies, products and discounts, and role-based access decides what each of the four account types sees. Forms are validated with VeeValidate and Zod. It <strong>significantly sped up customer onboarding</strong>.</p></div>
+            <div class="row-body"><p>A self-service portal for 3POS customers and staff, which I built as the main developer. Customers order modules, pay through Stripe, manage their subscriptions and download PDF invoices, and role-based access decides what each account type sees. It <strong>significantly sped up customer onboarding</strong>.</p></div>
             <p class="row-stack">Nuxt, TypeScript, Pinia, Nuxt i18n, VeeValidate, Zod, Stripe, REST APIs</p>
           </li>
           <li class="row" id="kitchen-monitor">
@@ -121,25 +121,22 @@
           </li>
           <li class="row" id="cashier">
             <h4>3POS point of sale</h4>
-            <div class="row-body">
-              <p>The 3POS point-of-sale app used daily by restaurant and retail staff. One Vue codebase ships to the browser, to Windows, macOS and Linux desktops, and to iOS and Android tablets.</p>
-              <p>Since 2021 I’ve made over 1,000 commits to it: at the till (gift cards, tips, discounts, weighing, on-screen keyboards) and across the back office (items and stock, labels and barcodes, invoices, accounting exports, sales analytics with Excel export, and settings for kiosks, TableBee, delivery and reservations). I cut load times with code splitting, lazy loading and caching.</p>
-            </div>
-            <p class="row-stack">Vue, JavaScript, Vuetify, Vuex, Bootstrap, IndexedDB, REST APIs</p>
+            <div class="row-body"><p>The point-of-sale app restaurant and retail staff use every day, from taking payments to running the back office. Over 1,000 of its commits are mine, covering gift cards, tips and discounts at the checkout, and stock, invoices and sales analytics behind it. Code splitting, lazy loading and caching <strong>cut its load times</strong>.</p></div>
+            <p class="row-stack">Vue, JavaScript, Vuetify, Vuex, Bootstrap, IndexedDB, Mollie, REST APIs</p>
           </li>
           <li class="row" id="ordering">
             <h4>Kiosk and TableBee QR ordering</h4>
-            <div class="row-body"><p>A self-service kiosk for fast-food restaurants, and TableBee, a QR-code table ordering app. Diners scan the code on their table, browse the menu with allergen filters, pay with Mollie, PayPal or a gift card, and see live when staff approve their order. I built TableBee’s first menu, cart and checkout in 2021, and later added its all-you-can-eat mode, session timeouts, minimum order values and Mollie payments. Both apps boosted order volume, cut counter workload and sped up table turnaround.</p></div>
-            <p class="row-stack">Vue, JavaScript, TypeScript, Vuetify, Vuex, Socket.IO, REST APIs</p>
+            <div class="row-body"><p>Two self-service ordering apps: a kiosk for fast-food restaurants, and TableBee, where diners scan a QR code at their table to order and pay. I built TableBee’s first menu, cart and checkout, and later its all-you-can-eat mode and Mollie payments. Both apps <strong>boosted order volume</strong>, cut counter workload and sped up table turnaround.</p></div>
+            <p class="row-stack">Vue, JavaScript, TypeScript, Vuetify, Vuex, Socket.IO, Mollie, REST APIs</p>
           </li>
           <li class="row" id="online-ordering">
             <h4>LocalBee online ordering</h4>
-            <div class="row-body"><p>LocalBee, an online ordering web app for restaurant delivery and pickup that I worked on from its first version in 2021. Diners browse the menu, check their address against the delivery area, apply coupons, schedule orders and pay online with PayPal or Mollie, then follow their order on a tracking page. Accounts keep addresses, order history and favorite restaurants, in German, English and French. Orders go straight to the restaurant’s POS and Kitchen Monitor. It <strong>improved order accuracy</strong> for staff and customers.</p></div>
-            <p class="row-stack">Vue, JavaScript, Vuetify, Vuex, Vue I18n, PWA, REST APIs</p>
+            <div class="row-body"><p>LocalBee, an online ordering web app for restaurant delivery and pickup that I’ve worked on since its first version. Diners order, pay with PayPal or Mollie and follow their order on a tracking page, and every order goes straight to the restaurant’s POS and Kitchen Monitor. It <strong>improved order accuracy</strong> for staff and customers.</p></div>
+            <p class="row-stack">Vue, JavaScript, Vuetify, Vuex, Vue I18n, PWA, Mollie, REST APIs</p>
           </li>
           <li class="row" id="reservations">
             <h4>PlaceBee table reservations</h4>
-            <div class="row-body"><p>PlaceBee, a table reservation web app for restaurants that I built as the main developer from 2021. Guests choose a reservation type and party size, pick from the times still free, choose tables that fit their group, pre-order dishes and confirm. The receipt carries a QR code and can be saved as a PDF or added to a calendar. Each venue sets its own colors, texts and opening hours and can skip the table or dish steps, in German, English and French. Real-time availability <strong>prevents double bookings</strong>.</p></div>
+            <div class="row-body"><p>PlaceBee, a table reservation web app for restaurants that I built as the main developer. Guests pick a free time and table, pre-order dishes and get a QR-code receipt they can save as a PDF or add to their calendar. Real-time availability <strong>prevents double bookings</strong>.</p></div>
             <p class="row-stack">Vue, JavaScript, Vuetify, Vuex, Vue I18n, REST APIs</p>
           </li>
           <li class="row" id="wordpress">
