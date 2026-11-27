@@ -103,8 +103,8 @@
         <ul class="rows" role="list">
           <li class="row" id="admin-portal">
             <h4>Admin portal</h4>
-            <div class="row-body"><p>An admin portal built on REST APIs, with VeeValidate and Zod form validation. It gives administrators full control over orders, invoices, subscriptions, users and analytics, and <strong>significantly sped up customer onboarding</strong>.</p></div>
-            <p class="row-stack">Nuxt, TypeScript, Vite, Tailwind CSS, VeeValidate, Zod, REST APIs</p>
+            <div class="row-body"><p>A self-service portal for 3POS customers and staff that I built as the main developer, on REST APIs and in four languages. Customers order modules and pay through Stripe, pause or change their subscriptions, download invoices as PDF and manage their own users. Admins and resellers manage companies, products and discounts, and role-based access decides what each of the four account types sees. Forms are validated with VeeValidate and Zod. It <strong>significantly sped up customer onboarding</strong>.</p></div>
+            <p class="row-stack">Nuxt, TypeScript, Pinia, Nuxt i18n, VeeValidate, Zod, Stripe, REST APIs</p>
           </li>
           <li class="row" id="kitchen-monitor">
             <h4>Kitchen Monitor</h4>
@@ -120,24 +120,27 @@
             <p class="row-stack">Vue, JavaScript, Vuetify, WebSockets, REST APIs</p>
           </li>
           <li class="row" id="cashier">
-            <h4>Web POS cashier</h4>
-            <div class="row-body"><p>Features and production fixes for the web POS cashier system used daily by restaurant staff. I cut load times with code splitting, lazy loading and caching.</p></div>
-            <p class="row-stack">Vue, JavaScript, Vuetify, Bootstrap, REST APIs</p>
+            <h4>3POS point of sale</h4>
+            <div class="row-body">
+              <p>The 3POS point-of-sale app used daily by restaurant and retail staff. One Vue codebase ships to the browser, to Windows, macOS and Linux desktops, and to iOS and Android tablets.</p>
+              <p>Since 2021 I’ve made over 1,000 commits to it: at the till (gift cards, tips, discounts, weighing, on-screen keyboards) and across the back office (items and stock, labels and barcodes, invoices, accounting exports, sales analytics with Excel export, and settings for kiosks, TableBee, delivery and reservations). I cut load times with code splitting, lazy loading and caching.</p>
+            </div>
+            <p class="row-stack">Vue, JavaScript, Vuetify, Vuex, Bootstrap, IndexedDB, REST APIs</p>
           </li>
           <li class="row" id="ordering">
-            <h4>Kiosk and QR ordering</h4>
-            <div class="row-body"><p>A self-service kiosk for fast-food restaurants, and a QR-code table ordering app that lets diners order from their own phones. Both boosted order volume, cut counter workload and sped up table turnaround.</p></div>
-            <p class="row-stack">Vue, TypeScript, Vuetify, REST APIs</p>
+            <h4>Kiosk and TableBee QR ordering</h4>
+            <div class="row-body"><p>A self-service kiosk for fast-food restaurants, and TableBee, a QR-code table ordering app. Diners scan the code on their table, browse the menu with allergen filters, pay with Mollie, PayPal or a gift card, and see live when staff approve their order. I built TableBee’s first menu, cart and checkout in 2021, and later added its all-you-can-eat mode, session timeouts, minimum order values and Mollie payments. Both apps boosted order volume, cut counter workload and sped up table turnaround.</p></div>
+            <p class="row-stack">Vue, JavaScript, TypeScript, Vuetify, Vuex, Socket.IO, REST APIs</p>
           </li>
           <li class="row" id="online-ordering">
-            <h4>Online ordering</h4>
-            <div class="row-body"><p>An online ordering system for delivery and pickup that improved order accuracy for staff and customers.</p></div>
-            <p class="row-stack">Vue, JavaScript, Vuetify, REST APIs</p>
+            <h4>LocalBee online ordering</h4>
+            <div class="row-body"><p>LocalBee, an online ordering web app for restaurant delivery and pickup that I worked on from its first version in 2021. Diners browse the menu, check their address against the delivery area, apply coupons, schedule orders and pay online with PayPal or Mollie, then follow their order on a tracking page. Accounts keep addresses, order history and favorite restaurants, in German, English and French. Orders go straight to the restaurant’s POS and Kitchen Monitor. It <strong>improved order accuracy</strong> for staff and customers.</p></div>
+            <p class="row-stack">Vue, JavaScript, Vuetify, Vuex, Vue I18n, PWA, REST APIs</p>
           </li>
           <li class="row" id="reservations">
-            <h4>Table reservations</h4>
-            <div class="row-body"><p>A table reservation system with dish pre-ordering and real-time availability, preventing double bookings.</p></div>
-            <p class="row-stack">Vue, JavaScript, Vuetify, REST APIs</p>
+            <h4>PlaceBee table reservations</h4>
+            <div class="row-body"><p>PlaceBee, a table reservation web app for restaurants that I built as the main developer from 2021. Guests choose a reservation type and party size, pick from the times still free, choose tables that fit their group, pre-order dishes and confirm. The receipt carries a QR code and can be saved as a PDF or added to a calendar. Each venue sets its own colors, texts and opening hours and can skip the table or dish steps, in German, English and French. Real-time availability <strong>prevents double bookings</strong>.</p></div>
+            <p class="row-stack">Vue, JavaScript, Vuetify, Vuex, Vue I18n, REST APIs</p>
           </li>
           <li class="row" id="wordpress">
             <h4>Product websites</h4>
@@ -156,7 +159,7 @@
         <ul class="rows" role="list">
           <li class="row" id="event-scanner">
             <h4>Event Scanner</h4>
-            <div class="row-body"><p>Ticket scanning for check-in and check-out at stadiums and event venues. It <strong>cut attendee wait times by 50%</strong>.</p></div>
+            <div class="row-body"><p>Ticket scanning for check-in and check-out at stadiums and event venues. It <strong>cut attendee wait times by 50%</strong>. Available on <a href="https://play.google.com/store/apps/details?id=com.eventbeescanner">Google Play</a>.</p></div>
             <p class="row-stack">React Native</p>
           </li>
           <li class="row" id="stock-taking">
@@ -194,7 +197,7 @@
     <!-- Selected work -->
     <section class="work section" id="work" aria-labelledby="work-title">
       <div class="section-heading">
-        <p class="section-meta">3POS products<br>7 of the 10+ I shipped</p>
+        <p class="section-meta">3POS products<br>9 of the 10+ I shipped</p>
         <h2 id="work-title">Screens staff use<br>every shift.</h2>
       </div>
 
@@ -208,7 +211,6 @@
                   <span class="kds-name">Kitchen Monitor</span>
                   <span class="kds-meta">
                     <span class="kds-live"><span class="live-dot" aria-hidden="true"></span><span class="kds-open">4 open</span></span>
-                    <button type="button" class="kds-pause" aria-pressed="false">Pause</button>
                   </span>
                 </div>
                 <ul class="kds-orders" role="list">
@@ -234,31 +236,46 @@
         <article class="project project--live" aria-labelledby="p-admin">
           <div class="project-visual project-visual--admin">
             <div class="browser-frame">
-              <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span><b>3POS Admin</b></div>
+              <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span><b>3POS Management</b></div>
               <div class="admin-ui">
-                <div class="admin-copy" aria-hidden="true"><small>Orders / invoices / users</small><strong>Every location.<br>One portal.</strong><em>Onboard a customer</em></div>
-                <div class="admin-table">
-                  <div class="admin-tabs" role="tablist" aria-label="Admin portal demo">
-                    <button type="button" role="tab" id="admin-tab-orders" aria-controls="admin-rows" aria-selected="true" data-tab="orders">Orders</button>
-                    <button type="button" role="tab" id="admin-tab-invoices" aria-controls="admin-rows" aria-selected="false" tabindex="-1" data-tab="invoices">Invoices</button>
-                    <button type="button" role="tab" id="admin-tab-users" aria-controls="admin-rows" aria-selected="false" tabindex="-1" data-tab="users">Users</button>
+                <div class="admin-side">
+                  <span class="admin-brand" aria-hidden="true">3POS Management</span>
+                  <!-- As in the real portal, the role decides which sections the sidebar shows. -->
+                  <div class="admin-role" role="group" aria-label="View the portal as">
+                    <button type="button" aria-pressed="true" data-role="admin">Admin</button>
+                    <button type="button" aria-pressed="false" data-role="customer">Customer</button>
                   </div>
-                  <div class="admin-rows" id="admin-rows" role="tabpanel" aria-labelledby="admin-tab-orders">
-                    <p><span>#1042</span><span>Paid</span><b>84.50</b></p>
-                    <p><span>#1041</span><span>Paid</span><b>27.00</b></p>
-                    <p><span>#1040</span><span class="is-warn">Open</span><b>112.90</b></p>
-                    <p><span>#1039</span><span>Paid</span><b>46.20</b></p>
-                    <p><span>#1038</span><span>Paid</span><b>63.75</b></p>
+                  <div class="admin-tabs" role="tablist" aria-label="Admin portal demo" aria-orientation="vertical">
+                    <button type="button" role="tab" id="admin-tab-dashboard" aria-controls="admin-rows" aria-selected="true" data-tab="dashboard" data-roles="admin customer">Dashboard</button>
+                    <button type="button" role="tab" id="admin-tab-systems" aria-controls="admin-rows" aria-selected="false" tabindex="-1" data-tab="systems" data-roles="admin customer">Systems</button>
+                    <button type="button" role="tab" id="admin-tab-orders" aria-controls="admin-rows" aria-selected="false" tabindex="-1" data-tab="orders" data-roles="admin customer">Orders</button>
+                    <button type="button" role="tab" id="admin-tab-invoices" aria-controls="admin-rows" aria-selected="false" tabindex="-1" data-tab="invoices" data-roles="admin customer">Invoices</button>
+                    <button type="button" role="tab" id="admin-tab-subscriptions" aria-controls="admin-rows" aria-selected="false" tabindex="-1" data-tab="subscriptions" data-roles="admin customer">Subscriptions</button>
+                    <button type="button" role="tab" id="admin-tab-mail-storage" aria-controls="admin-rows" aria-selected="false" tabindex="-1" data-tab="mail-storage" data-roles="admin">Mail storage</button>
+                    <button type="button" role="tab" id="admin-tab-companies" aria-controls="admin-rows" aria-selected="false" tabindex="-1" data-tab="companies" data-roles="admin">Companies</button>
+                    <button type="button" role="tab" id="admin-tab-products" aria-controls="admin-rows" aria-selected="false" tabindex="-1" data-tab="products" data-roles="admin">Products</button>
+                    <button type="button" role="tab" id="admin-tab-discounts" aria-controls="admin-rows" aria-selected="false" tabindex="-1" data-tab="discounts" data-roles="admin">Discounts</button>
+                    <button type="button" role="tab" id="admin-tab-users" aria-controls="admin-rows" aria-selected="false" tabindex="-1" data-tab="users" data-roles="admin customer">Users</button>
+                  </div>
+                </div>
+                <div class="admin-table">
+                  <div class="admin-head" aria-hidden="true"><strong class="admin-title">Dashboard</strong><small class="admin-scope">All companies</small></div>
+                  <div class="admin-rows" id="admin-rows" role="tabpanel" aria-labelledby="admin-tab-dashboard">
+                    <p><span>Systems</span><span>Active</span><b>148</b></p>
+                    <p><span>Subscriptions</span><span>Active</span><b>212</b></p>
+                    <p><span>Companies</span><span>Customer</span><b>96</b></p>
+                    <p><span>Orders</span><span>Ordered</span><b>6</b></p>
+                    <p><span>Invoices</span><span class="is-warn">Due</span><b>3</b></p>
                   </div>
                 </div>
               </div>
             </div>
-            <p class="demo-hint">A small working copy of the portal. Switch the tabs to browse orders, invoices and users.</p>
+            <p class="demo-hint">A small working copy of the portal. Switch between admin and customer to see what each one manages.</p>
           </div>
           <div class="project-info">
             <h3 id="p-admin"><a href="#admin-portal">Admin portal</a></h3>
-            <p>Orders, invoices, subscriptions and analytics</p>
-            <p>Nuxt / TypeScript / Vite / Zod</p>
+            <p>Self-service billing for customers, full control for admins</p>
+            <p>Nuxt / TypeScript / Pinia / Zod</p>
             <span>Faster onboarding</span>
           </div>
         </article>
@@ -269,7 +286,6 @@
             <div class="cashier-frame">
               <div class="cashier-menu">
                 <div class="cashier-top" aria-hidden="true"><b>3POS</b><span>Cashier / Table 12</span></div>
-                <strong aria-hidden="true">Every order.<br>Every shift.</strong>
                 <div class="cashier-items" role="group" aria-label="Menu items">
                   <button type="button" data-name="Burger" data-price="11.50">Burger</button>
                   <button type="button" data-name="Pizza" data-price="9.90">Pizza</button>
@@ -277,6 +293,9 @@
                   <button type="button" data-name="Fries" data-price="4.50">Fries</button>
                   <button type="button" data-name="Cola" data-price="3.00">Cola</button>
                   <button type="button" data-name="Water" data-price="2.00">Water</button>
+                  <button type="button" data-name="Wrap" data-price="8.00">Wrap</button>
+                  <button type="button" data-name="Coffee" data-price="2.80">Coffee</button>
+                  <button type="button" data-name="Tiramisu" data-price="4.50">Tiramisu</button>
                 </div>
               </div>
               <div class="cashier-ticket">
@@ -300,7 +319,141 @@
           </div>
         </article>
 
-        <!-- 4. Event Scanner: a working demo, tap the code to scan -->
+        <!-- 4. LocalBee ordering: a working demo, add dishes, order, then follow the order -->
+        <article class="project project--live" aria-labelledby="p-lbapp">
+          <div class="project-visual project-visual--lbapp">
+            <div class="lb-copy">
+              <small aria-hidden="true">Delivery and pickup</small>
+              <strong aria-hidden="true">Order in.<br>Track it.</strong>
+              <span>Online ordering restaurants run on their own site. <span class="demo-hint">Add dishes, then order to follow it live.</span></span>
+            </div>
+            <div class="lb-phone">
+              <section class="lb-screen" aria-label="LocalBee ordering demo">
+                <p class="lb-top" aria-hidden="true"><b>LocalBee</b><span>Pizza Nova</span></p>
+                <div class="lb-menu">
+                  <div class="lb-mode" role="group" aria-label="Order type">
+                    <button type="button" aria-pressed="true" data-mode="delivery">Delivery</button>
+                    <button type="button" aria-pressed="false" data-mode="pickup">Pickup</button>
+                  </div>
+                  <ul class="lb-items" role="list">
+                    <li><span><b>Margherita</b><small>8.90</small></span><button type="button" data-name="Margherita" data-price="8.90" aria-label="Add Margherita">+</button></li>
+                    <li><span><b>Chicken tagine</b><small>12.90</small></span><button type="button" data-name="Chicken tagine" data-price="12.90" aria-label="Add Chicken tagine">+</button></li>
+                    <li><span><b>Caesar salad</b><small>7.50</small></span><button type="button" data-name="Caesar salad" data-price="7.50" aria-label="Add Caesar salad">+</button></li>
+                    <li><span><b>Mint tea</b><small>2.50</small></span><button type="button" data-name="Mint tea" data-price="2.50" aria-label="Add Mint tea">+</button></li>
+                  </ul>
+                  <button type="button" class="lb-order">Order · 2 items · 21.80</button>
+                </div>
+                <div class="lb-track" hidden>
+                  <small class="lb-track-id">Order #5120</small>
+                  <strong class="lb-track-now">Received</strong>
+                  <p class="lb-track-sum">2 items · 21.80 · Delivery</p>
+                  <ol class="lb-steps">
+                    <li>Received</li>
+                    <li>Preparing</li>
+                    <li class="lb-last">On the way</li>
+                  </ol>
+                  <button type="button" class="lb-again">New order</button>
+                </div>
+              </section>
+            </div>
+            <p class="sr-only lb-status" aria-live="polite"></p>
+          </div>
+          <div class="project-info">
+            <h3 id="p-lbapp"><a href="#online-ordering">LocalBee ordering</a></h3>
+            <p>Delivery and pickup ordering for restaurants</p>
+            <p>Vue / Vuex / Vue I18n / PWA</p>
+            <span>Better order accuracy</span>
+          </div>
+        </article>
+
+        <!-- 5. PlaceBee reservations: a working demo, pick guests, day and time, then book -->
+        <article class="project project--live" aria-labelledby="p-placebee">
+          <div class="project-visual project-visual--placebee">
+            <div class="pb-frame">
+              <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span><b>PlaceBee</b></div>
+              <section class="pb-ui" aria-label="PlaceBee reservation demo">
+                <!-- The real app's six steps. The demo covers steps 1 and 2, then the confirmation. -->
+                <ol class="pb-steps" aria-hidden="true">
+                  <li class="is-done">Guests</li>
+                  <li class="is-current">Date and time</li>
+                  <li>Table</li>
+                  <li>Dishes</li>
+                  <li>Details</li>
+                  <li>Done</li>
+                </ol>
+                <div class="pb-main">
+                  <!-- Step 1: reservation type and number of guests -->
+                  <div class="pb-guests-step" hidden>
+                    <p class="pb-title">Number of guests</p>
+                    <div class="pb-field">
+                      <small id="pb-type-label">Reservation type</small>
+                      <p class="pb-type" aria-labelledby="pb-type-label">Dinner</p>
+                    </div>
+                    <div class="pb-field">
+                      <small id="pb-guests-label">Guests</small>
+                      <div class="pb-guests" role="group" aria-labelledby="pb-guests-label">
+                        <button type="button" data-step="-1" aria-label="Fewer guests">−</button>
+                        <output class="pb-guests-count" aria-live="polite">4</output>
+                        <button type="button" data-step="1" aria-label="More guests">+</button>
+                      </div>
+                    </div>
+                    <button type="button" class="pb-next">Next: date and time</button>
+                  </div>
+                  <!-- Step 2: date and time -->
+                  <div class="pb-form">
+                    <div class="pb-head">
+                      <p class="pb-title">Date and time</p>
+                      <button type="button" class="pb-back"><span class="pb-back-guests">4 guests</span> · Change</button>
+                    </div>
+                    <div class="pb-field">
+                      <small id="pb-day-label">Day</small>
+                      <div class="pb-days" role="group" aria-labelledby="pb-day-label">
+                        <button type="button" aria-pressed="false" data-day="fri">Fri 12</button>
+                        <button type="button" aria-pressed="true" data-day="sat">Sat 13</button>
+                        <button type="button" aria-pressed="false" data-day="sun">Sun 14</button>
+                      </div>
+                    </div>
+                    <div class="pb-field">
+                      <small id="pb-time-label">Time</small>
+                      <div class="pb-times" role="group" aria-labelledby="pb-time-label">
+                        <button type="button" aria-pressed="false" data-time="18:00">18:00</button>
+                        <button type="button" aria-pressed="false" data-time="18:30" disabled>Full</button>
+                        <button type="button" aria-pressed="false" data-time="19:00">19:00</button>
+                        <button type="button" aria-pressed="false" data-time="19:30" disabled>Full</button>
+                        <button type="button" aria-pressed="true" data-time="20:00">20:00</button>
+                        <button type="button" aria-pressed="false" data-time="20:30" disabled>Full</button>
+                      </div>
+                    </div>
+                    <button type="button" class="pb-book">Book · Sat 13, 20:00</button>
+                  </div>
+                  <div class="pb-receipt" hidden>
+                    <svg viewBox="0 0 21 21" shape-rendering="crispEdges" aria-hidden="true">
+                      <path d="M0 0h7v7H0zM14 0h7v7h-7zM0 14h7v7H0z" fill="currentColor"/>
+                      <path d="M1 1h5v5H1zM15 1h5v5h-5zM1 15h5v5H1z" fill="#f7f5ee"/>
+                      <path d="M2 2h3v3H2zM16 2h3v3h-3zM2 16h3v3H2zM8 1h3v2H8zM9 4h2v3H9zM0 9h3v2H0zM4 8h3v2H4zM8 8h5v2H8zM14 9h2v3h-2zM17 8h4v2h-4zM2 12h4v1H2zM8 11h2v3H8zM11 12h2v2h-2zM18 12h3v2h-3zM8 15h3v2H8zM12 15h4v2h-4zM17 16h2v3h-2zM9 18h3v3H9zM13 19h3v2h-3zM19 19h2v2h-2z" fill="currentColor"/>
+                    </svg>
+                    <div>
+                      <small class="pb-ref">Booking PB-2318</small>
+                      <strong class="pb-when">4 guests, Sat 13, 20:00</strong>
+                      <p class="pb-extras" aria-hidden="true"><span>PDF</span><span>Add to calendar</span></p>
+                      <button type="button" class="pb-again">New booking</button>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <p class="demo-hint">A small working copy of the booking page. Full slots can’t be booked. Change the guests to see that large groups only fit some times.</p>
+            <p class="sr-only pb-status" aria-live="polite"></p>
+          </div>
+          <div class="project-info">
+            <h3 id="p-placebee"><a href="#reservations">PlaceBee</a></h3>
+            <p>Table booking with dish pre-ordering</p>
+            <p>Vue / Vuex / Vuetify / Vue I18n</p>
+            <span>No double bookings</span>
+          </div>
+        </article>
+
+        <!-- 6. Event Scanner: a working demo, tap the code to scan -->
         <article class="project project--live" aria-labelledby="p-scan">
           <div class="project-visual project-visual--scan">
             <div class="scan-mark" aria-hidden="true">S<span>C</span>AN</div>
@@ -332,7 +485,7 @@
           </div>
         </article>
 
-        <!-- 5. Price Check: a working demo, tap the barcode to scan -->
+        <!-- 7. Price Check: a working demo, tap the barcode to scan -->
         <article class="project project--live" aria-labelledby="p-price">
           <div class="project-visual project-visual--price">
             <div class="price-copy">
@@ -359,7 +512,7 @@
           </div>
         </article>
 
-        <!-- 6. 3pos.de -->
+        <!-- 8. 3pos.de -->
         <article class="project" aria-labelledby="p-site">
           <a class="project-visual project-visual--web" href="https://www.3pos.de/">
             <span class="sr-only">Visit the 3pos.de website</span>
@@ -377,7 +530,7 @@
           </div>
         </article>
 
-        <!-- 7. localbee.de -->
+        <!-- 9. localbee.de -->
         <article class="project" aria-labelledby="p-localbee">
           <a class="project-visual project-visual--web project-visual--localbee" href="https://www.localbee.de/">
             <span class="sr-only">Visit the localbee.de website</span>
@@ -388,8 +541,8 @@
             <span class="view-project" aria-hidden="true">Live site ↗</span>
           </a>
           <div class="project-info">
-            <h3 id="p-localbee">localbee.de</h3>
-            <p>Product website for the LocalBee online shop</p>
+            <h3 id="p-localbee"><a href="#online-ordering">localbee.de</a></h3>
+            <p>Marketing site for LocalBee, the ordering app I helped build</p>
             <p>WordPress / Elementor / Responsive design</p>
             <span>Live</span>
           </div>
